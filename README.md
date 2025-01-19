@@ -10,3 +10,7 @@
 - Render all products (ProductList)
 - Create product card (ProductItem)
 - Implement search functionality
+- Shimmer Effect added for products
+- fetch all categories
+- Shimmer Effect categories
+- Get products by a category and created category menus

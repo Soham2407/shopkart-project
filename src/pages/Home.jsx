@@ -1,9 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
 import ProductList from "../components/ProductList";
+import ProductListShimmer from "../components/ProductListShimmer";
+import CategoryMenus from "../components/CategoryMenus";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [searchQuery, setsearchQuery] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const filterProducts = useMemo(() => {
     return products?.filter((product) =>
@@ -11,17 +16,36 @@ const Home = () => {
     );
   }, [searchQuery, products]);
 
-  const getProducts = async () => {
-    const res = await fetch("https://dummyjson.com/products");
+  const getCategoryList = async () => {
+    setLoading(true);
+    const res = await fetch("https://dummyjson.com/products/category-list");
     const data = await res.json();
+    setLoading(false);
+    setCategories(data);
+  };
+
+  const getProducts = async () => {
+    let res;
+    setLoading(true);
+    if (selectedCategory) {
+      res = await fetch(
+        `https://dummyjson.com/products/category/${selectedCategory}`
+      );
+    } else {
+      res = await fetch("https://dummyjson.com/products");
+    }
+    const data = await res.json();
+    setLoading(false);
     setProducts(data?.products);
   };
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [selectedCategory]);
 
-  console.log(filterProducts);
+  useEffect(() => {
+    getCategoryList();
+  }, []);
 
   return (
     <main className="my-2 w-full">
@@ -36,7 +60,24 @@ const Home = () => {
           onChange={(e) => setsearchQuery(e.target.value)}
         />
       </div>
-      <ProductList products={filterProducts} />
+
+      {/* Categories */}
+      <div className="my-6">
+        {
+          <CategoryMenus
+            categories={categories}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        }
+      </div>
+
+      {/* products */}
+      {loading ? (
+        <ProductListShimmer />
+      ) : (
+        <ProductList products={filterProducts} />
+      )}
     </main>
   );
 };
