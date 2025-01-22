@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -10,6 +10,9 @@ const ErrorPage = () => {
       <h2 className="text-xl text-gray-500">
         {error.status} - {error.statusText}
       </h2>
+      <Link to={"/"} className="text-blue-500 underline text-lg">
+        Go back home
+      </Link>
     </div>
   );
 };

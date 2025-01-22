@@ -80,7 +80,7 @@ const Home = () => {
         <ProductList products={filterProducts} />
       )}
 
-      {/* <Cart /> */}
+      <Cart />
     </main>
   );
 };

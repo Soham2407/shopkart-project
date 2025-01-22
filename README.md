@@ -16,3 +16,4 @@
 - Get products by a category and created category menus
 - Cart UI Created
 - Error Page added if route not match
+- Cart Icon bounce animation and toggle add
