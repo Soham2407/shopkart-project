@@ -14,3 +14,5 @@
 - fetch all categories
 - Shimmer Effect categories
 - Get products by a category and created category menus
+- Cart UI Created
+- Error Page added if route not match

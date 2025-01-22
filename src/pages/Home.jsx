@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import ProductList from "../components/ProductList";
 import ProductListShimmer from "../components/ProductListShimmer";
 import CategoryMenus from "../components/CategoryMenus";
+import Cart from "../components/Cart";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -78,6 +79,8 @@ const Home = () => {
       ) : (
         <ProductList products={filterProducts} />
       )}
+
+      {/* <Cart /> */}
     </main>
   );
 };
