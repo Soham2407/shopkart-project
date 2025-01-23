@@ -17,3 +17,5 @@
 - Cart UI Created
 - Error Page added if route not match
 - Cart Icon bounce animation and toggle add
+- Create Product Details page add & created UI
+- Integrate getProductById api

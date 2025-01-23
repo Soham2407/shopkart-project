@@ -1,10 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { Rating } from "@mui/material";
 
 const ProductItem = ({ product }) => {
-  const { title, description, price, rating, thumbnail } = product;
+  const navigate = useNavigate();
+  const { title, description, price, rating, thumbnail, id } = product;
+
   return (
-    <div className="w-72 lg:w-64 h-[380px] border rounded-lg overflow-hidden shadow-lg relative hover:scale-105 cursor-pointer transition-all ease-in-out">
-      <img className="w-full h-40 object-cover" src={thumbnail} alt={title} />
+    <div
+      onClick={() =>
+        navigate(`/product/${id}`, { state: { product: product } })
+      }
+      className="w-72 lg:w-64 h-[380px] border rounded-lg overflow-hidden shadow-lg relative hover:scale-105 cursor-pointer transition-all ease-in-out"
+    >
+      <img className="w-full h-40" src={thumbnail} alt={title} />
       <div className="my-2 px-2">
         <p className="font-semibold text-xl">{title}</p>
         <p className="mt-2">
