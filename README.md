@@ -19,3 +19,6 @@
 - Cart Icon bounce animation and toggle add
 - Create Product Details page add & created UI
 - Integrate getProductById api
+- Add Item to cart implemented
+- cart functionality implemented (total amount, total items quantity increase, quantity decrease, delete item from cart)
+- Success Modal added on Checkout

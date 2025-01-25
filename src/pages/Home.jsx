@@ -10,6 +10,7 @@ const Home = () => {
   const [searchQuery, setsearchQuery] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [cartItems, setCartItems] = useState([]);
 
   const filterProducts = useMemo(() => {
     return products?.filter((product) =>
@@ -36,8 +37,12 @@ const Home = () => {
       res = await fetch("https://dummyjson.com/products");
     }
     const data = await res.json();
+    const transformProducts = data?.products?.map((product) => ({
+      ...product,
+      quantity: 1,
+    }));
     setLoading(false);
-    setProducts(data?.products);
+    setProducts(transformProducts);
   };
 
   useEffect(() => {
@@ -77,10 +82,14 @@ const Home = () => {
       {loading ? (
         <ProductListShimmer />
       ) : (
-        <ProductList products={filterProducts} />
+        <ProductList
+          products={filterProducts}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+        />
       )}
 
-      <Cart />
+      <Cart cartItems={cartItems} setCartItems={setCartItems} />
     </main>
   );
 };
