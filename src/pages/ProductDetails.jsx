@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import StarIcon from "@mui/icons-material/Star";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { FaStar } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 import ProductDetailsShimmer from "../components/ProductDetailsShimmer";
 
 const ProductDetails = () => {
@@ -34,11 +34,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <ChevronLeftIcon
-        onClick={() => navigate("/")}
-        className="mt-5 cursor-pointer"
-        sx={{ fontSize: 50 }}
-      />
+      <FaChevronLeft onClick={() => navigate("/")} />
       {isLoading ? (
         <ProductDetailsShimmer />
       ) : (
@@ -73,7 +69,7 @@ const ProductDetails = () => {
             <div className="flex justify-between items-center mb-2">
               <p className="font-bold text-xl">{product?.price}</p>
               <div className="flex items-center">
-                <StarIcon sx={{ color: "gold" }} />
+                <FaStar />
                 <span className="text-lg font-bold">
                   {parseFloat(product?.rating?.toFixed(1))}
                 </span>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Rating } from "@mui/material";
+import { FaStar } from "react-icons/fa";
 
 const ProductItem = ({ product, cartItems, setCartItems }) => {
   const navigate = useNavigate();
@@ -47,7 +47,9 @@ const ProductItem = ({ product, cartItems, setCartItems }) => {
       </div>
       <div className="w-full flex justify-between items-center mt-2 px-2 absolute bottom-12">
         <p className="font-medium text-lg">${price}</p>
-        <Rating readOnly defaultValue={rating} precision={0.5} />
+        <div className="flex items-center gap-2">
+          <FaStar /> <span>{rating}</span>
+        </div>
       </div>
       <button
         className="bg-blue-500 text-white w-full py-2 absolute bottom-0"

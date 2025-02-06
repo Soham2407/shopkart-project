@@ -3,7 +3,7 @@
 - Create react app using vite
 - Setup Tailwind CSS
 - Setup react-router-dom
-- Add Material UI
+- Add react icons
 - Create Header & Footer Components
 - Implement Nested routes
 - Fetch Product list api
@@ -21,4 +21,3 @@
 - Integrate getProductById api
 - Add Item to cart implemented
 - cart functionality implemented (total amount, total items quantity increase, quantity decrease, delete item from cart)
-- Success Modal added on Checkout

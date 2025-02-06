@@ -1,7 +1,7 @@
 import React from "react";
-import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
-import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
+import { FaTrash } from "react-icons/fa";
+import { CiSquarePlus } from "react-icons/ci";
+import { CiSquareMinus } from "react-icons/ci";
 
 const CartItem = ({ item, cartItems, setCartItems }) => {
   const deleteCartItemHandler = (id) => {
@@ -42,7 +42,7 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
       <div className="w-full">
         <div className="flex justify-between items-center">
           <p>{item?.title}</p>
-          <DeleteOutlinedIcon
+          <FaTrash
             className="cursor-pointer text-red-500"
             onClick={() => deleteCartItemHandler(item?.id)}
           />
@@ -50,17 +50,15 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
         <div className="flex justify-between items-center mt-1">
           <p>${item?.price}</p>
           <div className="flex items-center gap-1">
-            <IndeterminateCheckBoxOutlinedIcon
+            <CiSquareMinus
               className="cursor-pointer text-gray-500"
-              sx={{ fontSize: 28 }}
               onClick={() => {
                 decrementQuantity(item.id);
               }}
             />
             <p>{item?.quantity}</p>
-            <AddBoxOutlinedIcon
+            <CiSquarePlus
               className="cursor-pointer text-gray-500"
-              sx={{ fontSize: 28 }}
               onClick={() => {
                 incrementQuantity(item.id);
               }}

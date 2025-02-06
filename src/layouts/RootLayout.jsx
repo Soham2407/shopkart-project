@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 const RootLayout = () => {
   return (
     <div className="w-full h-screen">
-      <div className="w-full h-screen flex flex-col container mx-auto p-3">
+      <div className="w-full h-screen flex flex-col container mx-auto px-5 py-2">
         <Header />
         <Outlet />
         <Footer />
